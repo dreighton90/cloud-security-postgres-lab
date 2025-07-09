@@ -1,56 +1,43 @@
-# cloud-security-postgres-lab
+# ☁️ Cloud Security PostgreSQL Lab
 
-A hands-on PostgreSQL lab simulating real-time cloud event monitoring and alert correlation using AWS EC2 logs. Built to demonstrate how a SOC Analyst or Cloud Security Engineer can use log data to track user behavior, detect critical events, and run investigations using SQL.
-
----
-
-## 🧱 Project Overview
-
-This lab models a simplified cloud security environment with three core PostgreSQL tables:
-
-- `cloud_event_logs` – Raw cloud event data (e.g., EC2 stop/terminate)
-- `users` – Maps user identities to teams and roles
-- `alerts` – Tracks high-severity or unauthorized activity for investigation
+This project simulates a real-world SOC Analyst workflow by correlating cloud security events from AWS EC2 with user data and generating actionable security alerts using PostgreSQL. The goal is to demonstrate cloud event visibility, log ingestion, and query-based investigation in a structured lab environment.
 
 ---
 
-## 🎯 Use Cases
+## 📚 Use Cases
 
-- Correlate EC2 actions with user roles and severity levels  
-- Detect termination or shutdown events from unknown sources  
-- Simulate SOC workflows with JOIN queries and attribution  
-
----
-
-## 🗂️ Repository Contents
-
-| File | Description |
-|------|-------------|
-| `schema.sql` | SQL for creating all three tables |
-| `seed_data.sql` | Sample insert statements for cloud events, users, and alerts |
-| `queries.sql` | JOIN queries used to investigate behavior and correlate alerts |
-| `screenshots/` | Visual walkthrough of key steps and outputs |
+✅ Correlate EC2 actions with user roles and severity levels  
+✅ Detect termination or shutdown events from unknown sources  
+✅ Simulate SOC workflows with JOIN queries and attribution  
 
 ---
 
-## 🖥️ Technologies Used
+## 🧱 Repository Contents
 
-- AWS EC2 + CloudWatch + EventBridge
-- PostgreSQL (RDS)
-- Ubuntu 24.04 (jumpbox VM)
-- Terraform (for infrastructure provisioning)
+| File              | Description                                                  |
+|-------------------|--------------------------------------------------------------|
+| `schema.sql`      | SQL for creating `cloud_event_logs`, `users`, and `alerts` tables |
+| `seed_data.sql`   | Insert statements for sample cloud events and alerts         |
+| `queries.sql`     | JOIN queries to investigate cloud behavior and alert severity |
+| `screenshots/`    | Visual walkthrough of key setup, data modeling, and output   |
 
 ---
 
-## 📸 Project Walkthrough (Selected Screenshots)
+## 🛠️ Technologies Used
 
-> See the `screenshots/` folder for a chronological walkthrough of the full lab setup, from provisioning to final query validation.
+- **AWS EC2** (Cloud events source)  
+- **CloudWatch + EventBridge** (Log automation and rule generation)  
+- **PostgreSQL (AWS RDS)** (Relational database for alert correlation)  
+- **Ubuntu 24.04 VM (Jumpbox)** (Querying interface via psql)  
+- **Terraform** (Infrastructure as Code for provisioning)
 
-Example query output (alert correlation):
+---
+
+## 🧪 Sample Query Output
 
 ```sql
-SELECT a.alert_id, a.severity, u.username, c.event_type, c.timestamp
-FROM alerts a
-JOIN cloud_event_logs c ON a.event_id = c.event_id
-JOIN users u ON c.user_id = u.user_id
-WHERE a.severity = 'high';
+SELECT u.username, e.event_type, a.severity
+FROM users u
+JOIN cloud_event_logs e ON u.user_id = e.user_id
+JOIN alerts a ON e.event_id = a.event_id
+WHERE a.severity = 'High';
