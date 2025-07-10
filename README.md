@@ -49,22 +49,22 @@ WHERE a.severity = 'High';
 
 > These screenshots provide a step-by-step visual of the project process.
 
-![cloud logs and user table](screenshots/cloud-logs-and-user-table.png)  
+![cloud-logs-and-user-table](screenshots/cloud-logs-and-user-table.png)  
 📌 Preview of `cloud_event_logs` and `users` tables used for alert correlation.
 
-![data inserts](screenshots/data-inserts.png)  
+![data-inserts](screenshots/data-inserts.png)  
 📌 Sample `INSERT` statements for seeding test events and users.
 
-![full event query output](screenshots/full-event-query-output.png)  
+![full-event-query-output](screenshots/full-event-query-output.png)  
 📌 Combined event query showing user, action, and alert severity.
 
-![high severity termination](screenshots/high-severity-termination.png)  
+![high-severity-termination](screenshots/high-severity-termination.png)  
 📌 Example of a high-severity EC2 termination alert.
 
-![joined data view](screenshots/joined-data-view.png)  
+![joined-data-view](screenshots/joined-data-view.png)  
 📌 JOIN of all three tables with correlated cloud event and user data.
 
-![red team user](screenshots/red-team-user.png)  
+![red-team-user](screenshots/red-team-user.png)  
 📌 User attributes for a Red Team engineer responsible for the event.
 
 ![initial-ec2-instance-view](screenshots/initial-ec2-instance-view.png)  
@@ -100,7 +100,7 @@ WHERE a.severity = 'High';
 ![ec2-shutdown-log](screenshots/ec2-shutdown-log.png)  
 📌 Example log for EC2 shutdown detection.
 
-![high severity alert generated](screenshots/high-severity-alert-generated.png)  
+![high-severity-alert-generated](screenshots/high-severity-alert-generated.png)  
 📌 Alert generated and stored in `alerts` table.
 
 ![jumpbox-psql-query-output](screenshots/jumpbox-psql-query-output.png)  
