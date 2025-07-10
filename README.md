@@ -126,3 +126,10 @@ WHERE a.severity = 'High';
 
 ![final-query-validation](screenshots/final-query-validation.png)  
 📌 Final JOIN validation confirming alert, event, and user linkage.
+
+
+### 📌 Key Learning Outcomes
+- Practiced correlating cloud security logs with user identity and severity levels
+- Built SQL queries to support SOC investigations
+- Used Terraform to automate provisioning of secure AWS infrastructure
+- Gained hands-on experience querying PostgreSQL (AWS RDS) from a remote VM
