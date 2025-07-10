@@ -41,10 +41,11 @@ FROM users u
 JOIN cloud_event_logs e ON u.user_id = e.user_id
 JOIN alerts a ON e.event_id = a.event_id
 WHERE a.severity = 'High';
+```
 
 ---
 
-## Project Walkthrough
+## 🖼️ Project Walkthrough 
 
 > These screenshots provide a step-by-step visual of the project process.
 
