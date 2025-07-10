@@ -1,4 +1,4 @@
-# ☁️ Cloud Security PostgreSQL Lab
+# ☁️ Cloud Security Alerting System (AWS & PostgreSQL)
 
 This project simulates a real-world SOC Analyst workflow by correlating cloud security events from AWS EC2 with user data and generating actionable security alerts using PostgreSQL. The goal is to demonstrate cloud event visibility, log ingestion, and query-based investigation in a structured lab environment.
 
